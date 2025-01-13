@@ -12,16 +12,16 @@ struct CollectionCell: View {
     @EnvironmentObject var stateProperties: StateProperties
     @ObservedObject var collectionVM: CollectionViewModel
     
-    @State var collections: Collections
+    @State var result: Results
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             Button {
-                collectionVM.selectedCollection = collections.name
+                collectionVM.selectedCollection = result.species
             } label: {
-                Text(collections.name)
+                Text("\(result.id)")
                     .bold()
-                    .foregroundStyle(collectionVM.selectedCollection == collections.name ? .black : .gray.opacity(0.7))
+                    .foregroundStyle(collectionVM.selectedCollection == result.species ? .black : .gray.opacity(0.9))
             }
             .buttonStyle(.plain)
         }

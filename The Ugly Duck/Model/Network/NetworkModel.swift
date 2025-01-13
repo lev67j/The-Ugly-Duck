@@ -8,34 +8,22 @@
 import Foundation
 
 // MARK: - Network Model
-struct NetworkModel: Codable {
-    let results: [Results]
-}
-
-// MARK: - Result
-struct Results: Codable, Identifiable {
+struct Results: Codable {
     let id: Int
-    let name: String
-    let collection: String
-    let image: URL
-    let url: String
-}
+    let name, species, family, habitat: String
+    let placeOfFound, diet, description: String
+    let wingspanCM: Int?
+    let weightKg: Double
+    let image: String
+    let heightCM: Int?
 
-struct TUD: Codable, Identifiable {
-    let id: Int
-    let name: String
-    let collection: String
-    let image: [URL]
-    let height_TUD: Int
-    let weigth_TUD: Int
-    let packaging: String
-    let length_box: Int
-    let height_box: Int
-    let width_box: Int
-}
-
-
-struct Collections: Codable, Identifiable {
-    let id: UUID
-    let name: String
+    enum CodingKeys: String, CodingKey {
+        case id, name, species, family, habitat
+        case placeOfFound = "place_of_found"
+        case diet, description
+        case wingspanCM = "wingspan_cm"
+        case weightKg = "weight_kg"
+        case image
+        case heightCM = "height_cm"
+    }
 }

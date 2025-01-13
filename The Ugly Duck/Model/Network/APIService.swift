@@ -8,6 +8,10 @@
 import Foundation
 import Combine
 
+
+import Foundation
+import Combine
+
 @Observable
 final class APIService {
     
@@ -17,29 +21,28 @@ final class APIService {
     func loadData() {
         
         //create url
-        guard let url = URL(string: "https://rickandmortyapi.com/api/character") else {
+        guard let url = URL(string: "https://freetestapi.com/api/v1/birds") else {
             return print("Invalid URL")
         }
         
         URLSession.shared.dataTaskPublisher(for: url)
-            .map {
-                $0.data
-            }
-            .decode(type: NetworkModel.self, decoder: JSONDecoder())
+            .map { $0.data }
+            .decode(type: [Results].self, decoder: JSONDecoder()) 
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 
                 switch completion {
                     
                 case .finished:
-                    print("Good network")
+                    print("Good Network Birds")
                     
                 case .failure(let error):
                     print(error.localizedDescription)
+                    print(error)
                 }
                 
             } receiveValue: { decodeData in
-                self.results = decodeData.results
+                self.results = decodeData
             }
             .store(in: &cancellable)
     }

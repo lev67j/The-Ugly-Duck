@@ -10,7 +10,7 @@ import SwiftUI
 struct CollectionView: View {
     
     @EnvironmentObject var stateProperties: StateProperties
-    @State var collectionVM: CollectionViewModel
+    @ObservedObject var collectionVM: CollectionViewModel
     
     var body: some View {
         VStack {
@@ -19,29 +19,31 @@ struct CollectionView: View {
                 HStack {
                     Text("Collectibles")
                         .font(.title2.bold())
+                        .padding()
                     
                     Spacer()
                     
                     HStack {
-                        ForEach(collectionVM.collections, id: \.id) { collections in
-                            CollectionCell(collectionVM: collectionVM, collections: collections)
+                        ForEach(stateProperties.apiService.results.prefix(4), id: \.id) { result in   // ".prefix(4)" only for test api!
+                            CollectionCell(collectionVM: collectionVM, result: result)
                         }
                     }
-                    
-                    
+                    .padding()
                 }
-                .padding()
             }
+            .padding()
             
-            // Foreach cell in dependens on collectionVM.selectedCollection
+            // Collection TUD  | Switch "result.species" on "result.collection"
             VStack {
-                ForEach(stateProperties.apiService.results) { result in
-                    result.title == collectionVM.selectedCollection {
-                        Text(result.title)
-                            .font(.bold())
+                ScrollView(.vertical, showsIndicators: false) {
+                    ForEach(stateProperties.apiService.results, id: \.id) { result in
+                        if result.species == collectionVM.selectedCollection {
+                            TUD_Cell(result: result)
+                        }
                     }
                 }
             }
+            .padding()
         }
     }
 }
