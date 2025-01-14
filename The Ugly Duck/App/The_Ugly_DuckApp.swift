@@ -11,7 +11,7 @@ import SwiftUI
 struct The_Ugly_DuckApp: App {
     
     @StateObject private var stateProperties = StateProperties()
-   
+    
     var body: some Scene {
         WindowGroup {
             VStack {
@@ -25,7 +25,7 @@ struct The_Ugly_DuckApp: App {
                             .scaledToFit()
                         
                         Spacer()
-                     }
+                    }
                     .frame(width: 200, height: 40)
                     .padding(10)
                     
@@ -67,9 +67,7 @@ struct The_Ugly_DuckApp: App {
                 }
             }
             .onAppear {
-             //   DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    stateProperties.apiService.loadData()
-              //  }
+                stateProperties.apiService.loadData()
             }
         }
     }

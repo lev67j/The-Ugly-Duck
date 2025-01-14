@@ -13,5 +13,7 @@ struct TUD_Cell: View {
     
     var body: some View {
         Text("\(result.id)")
+            .bold()
+            .foregroundStyle(.black)
     }
 }

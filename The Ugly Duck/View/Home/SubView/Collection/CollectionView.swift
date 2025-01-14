@@ -13,37 +13,44 @@ struct CollectionView: View {
     @ObservedObject var collectionVM: CollectionViewModel
     
     var body: some View {
-        VStack {
-            // Header for Selected Collections
+        NavigationStack {
             VStack {
-                HStack {
-                    Text("Collectibles")
-                        .font(.title2.bold())
-                        .padding()
-                    
-                    Spacer()
-                    
+                // Header for Selected Collections
+                VStack {
                     HStack {
-                        ForEach(stateProperties.apiService.results.prefix(4), id: \.id) { result in   // ".prefix(4)" only for test api!
-                            CollectionCell(collectionVM: collectionVM, result: result)
+                        Text("Collectibles")
+                            .font(.title2.bold())
+                            .padding()
+                        
+                        Spacer()
+                        
+                        HStack {
+                            ForEach(stateProperties.apiService.results.prefix(4), id: \.id) { result in   // ".prefix(4)" only for test api!
+                                CollectionCell(collectionVM: collectionVM, result: result)
+                            }
                         }
-                    }
-                    .padding()
-                }
-            }
-            .padding()
-            
-            // Collection TUD  | Switch "result.species" on "result.collection"
-            VStack {
-                ScrollView(.vertical, showsIndicators: false) {
-                    ForEach(stateProperties.apiService.results, id: \.id) { result in
-                        if result.species == collectionVM.selectedCollection {
-                            TUD_Cell(result: result)
-                        }
+                        .padding()
                     }
                 }
+                .padding()
+                
+                // Collection TUD  | Switch "result.species" on "result.collection"
+                VStack {
+                    ScrollView(.vertical, showsIndicators: false) {
+                        ForEach(stateProperties.apiService.results, id: \.id) { result in
+                            if result.species == collectionVM.selectedCollection {
+                                NavigationLink {
+                                    TUD_Cell_Detail(result: result)
+                                        .navigationBarBackButtonHidden(true)
+                                } label: {
+                                    TUD_Cell(result: result)
+                                }
+                            }
+                        }
+                    }
+                }
+                .padding()
             }
-            .padding()
         }
     }
 }
