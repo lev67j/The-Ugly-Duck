@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 @main
 struct The_Ugly_DuckApp: App {
     
@@ -33,7 +34,7 @@ struct The_Ugly_DuckApp: App {
                 }
                 
                 TabView {
-                   HomeView()
+                    HomeView()
                         .environmentObject(stateProperties)
                         .tabItem {
                             Image(systemName: "house")
@@ -57,7 +58,7 @@ struct The_Ugly_DuckApp: App {
                             Text("Basket")
                         }
                     
-                    AccountView()
+                   AccountView()
                         .environmentObject(stateProperties)
                         .tabItem {
                             Image(systemName: "person")

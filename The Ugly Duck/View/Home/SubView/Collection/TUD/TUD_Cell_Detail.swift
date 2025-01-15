@@ -5,6 +5,20 @@
 //  Created by Lev Vlasov on 2025-01-14.
 //
 
+private func firstStartApp() {
+    let firstLaunch = UserDefaults().bool(forKey: "isFirstOpenApp")
+
+    if firstLaunch == false {
+        
+        // base 10 rounds
+        
+    }
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        UserDefaults().set(true, forKey: "isFirstOpenApp")
+    }
+}
+
 import SwiftUI
 
 struct TUD_Cell_Detail: View {
@@ -13,8 +27,8 @@ struct TUD_Cell_Detail: View {
     @EnvironmentObject var stateProperties: StateProperties
     
     @State var result: Results
-    @State private var isAddedToCart: Bool = false  //Redacted Флаг для отслеживания, добавлен ли товар в корзину
-    
+    @State var isAddedToBacket = UserDefaults().bool(forKey: "isAddedToBacket")
+
     var body: some View {
         VStack {
             
@@ -56,19 +70,46 @@ struct TUD_Cell_Detail: View {
                     
                 }
                 
-                // Button "Add to cart"
-                /*VStack {
+                // Button "Add to cart" 
+                VStack {
                     HStack {
                         Spacer()
-                        
-                        Button {
-                            // add in product backet
-                            stateProperties.add_product_to_backet(productId: result.id)
+                         if (stateProperties.backetProducts[result.id] ?? 0 > 0) {
                             
-                        } label: {
-                            Text("Add to cart")
-                                .font(.title3.bold())
-                                .foregroundStyle(.white)
+                            // Button + and -
+                            VStack {
+                                HStack {
+                                    
+                                    // minus button
+                                    Button {
+                                        if let count = stateProperties.backetProducts[result.id], count > 1 {
+                                            stateProperties.backetProducts[result.id] = count - 1
+                                        } else {
+                                            stateProperties.remove_product_from_backet(productId: result.id)
+                                        }
+                                    } label: {
+                                        Image(systemName: "minus.circle.fill")
+                                            .resizable()
+                                            .frame(width: 25, height: 25)
+                                            .foregroundColor(.white)
+                                    }
+                                    
+                                    // Number this products in backet
+                                    Text("\(stateProperties.backetProducts[result.id] ?? 0)")
+                                        .font(.title3.bold())
+                                        .foregroundColor(.white)
+                                        .frame(width: 40)
+                                    
+                                    // plus button
+                                    Button {
+                                        stateProperties.add_product_to_backet(productId: result.id)
+                                    } label: {
+                                        Image(systemName: "plus.circle.fill")
+                                            .resizable()
+                                            .frame(width: 25, height: 25)
+                                            .foregroundColor(.white)
+                                    }
+                                }
                                 .padding(.vertical, 10)
                                 .padding(.horizontal, 30)
                                 .background(
@@ -76,55 +117,13 @@ struct TUD_Cell_Detail: View {
                                         .foregroundStyle(.black)
                                         .clipShape(.rect(cornerRadius: 30)))
                                 .padding()
-                        }
-                    }
-                }*/
-                
-                // Redacted with button "Add to cart" // on 2 circle into - bag in add 2 identically cell - what fuck?
-                VStack {
-                    HStack {
-                        Spacer()
-                        
-                        if isAddedToCart {
-                            // Если товар добавлен, показываем кнопки + и -
-                            HStack {
-                                Button(action: {
-                                    // Уменьшаем количество товара в корзине
-                                    if let count = stateProperties.backetProducts[result.id], count > 1 {
-                                        stateProperties.backetProducts[result.id] = count - 1
-                                    } else {
-                                        stateProperties.remove_product_from_backet(productId: result.id)
-                                        isAddedToCart = false
-                                    }
-                                }) {
-                                    Image(systemName: "minus.circle.fill")
-                                        .resizable()
-                                        .frame(width: 25, height: 25)
-                                        .foregroundColor(.black)
-                                }
-                                
-                                Text("\(stateProperties.backetProducts[result.id] ?? 0)")
-                                    .font(.title3)
-                                    .foregroundColor(.black)
-                                    .frame(width: 40)
-                                
-                                Button(action: {
-                                    // Увеличиваем количество товара в корзине
-                                    stateProperties.add_product_to_backet(productId: result.id)
-                                }) {
-                                    Image(systemName: "plus.circle.fill")
-                                        .resizable()
-                                        .frame(width: 25, height: 25)
-                                        .foregroundColor(.black)
-                                }
                             }
-                        } else {
-                            // Если товар не добавлен, показываем кнопку "Add to cart"
+                         } else {
+                            
+                            // Button "Add to cart"
                             Button {
-                                // Добавляем товар в корзину
-                                stateProperties.add_product_to_backet(productId: result.id)
-                                isAddedToCart = true  // Отмечаем, что товар добавлен
-                            } label: {
+                               stateProperties.add_product_to_backet(productId: result.id)
+                             } label: {
                                 Text("Add to cart")
                                     .font(.title3.bold())
                                     .foregroundStyle(.white)
@@ -138,6 +137,7 @@ struct TUD_Cell_Detail: View {
                             }
                         }
                     }
+                    .padding()
                 }
             }
         }

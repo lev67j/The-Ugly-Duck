@@ -14,6 +14,8 @@ final class StateProperties: ObservableObject {
     
     // Словарь с ID товара и количеством
     @Published var backetProducts: [Int: Int] = [:]
+    @Published var isPresentPayment: Bool = false
+    
     
     // Добавить товар в корзину
     func add_product_to_backet(productId: Int) {

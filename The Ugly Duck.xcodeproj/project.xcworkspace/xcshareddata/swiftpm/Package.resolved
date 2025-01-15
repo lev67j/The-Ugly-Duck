@@ -1,0 +1,15 @@
+{
+  "originHash" : "f6538667a487cd0ee404160212881511a8a3e16ba3ca8a4fb957828c968a8aac",
+  "pins" : [
+    {
+      "identity" : "asdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://opensource.tbank.ru/mobile-tech/asdk-ios.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "17b8393cbb9150882b1e3c522389042d95fe1e98"
+      }
+    }
+  ],
+  "version" : 3
+}
