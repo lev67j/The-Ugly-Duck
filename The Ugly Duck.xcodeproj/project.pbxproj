@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		0BB060A72D37CF48005A7D9B /* TinkoffASDKUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0BB060A62D37CF48005A7D9B /* TinkoffASDKUI */; };
 		0BB060AD2D37D933005A7D9B /* TinkoffASDKCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0BB060AC2D37D933005A7D9B /* TinkoffASDKCore */; };
+		0BC805042D38BFDE007B63AE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC805032D38BFDE007B63AE /* FirebaseAnalytics */; };
+		0BC805062D38BFDE007B63AE /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC805052D38BFDE007B63AE /* FirebaseAnalyticsOnDeviceConversion */; };
+		0BC805082D38BFDE007B63AE /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC805072D38BFDE007B63AE /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		0BC8050E2D38BFDE007B63AE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC8050D2D38BFDE007B63AE /* FirebaseAuth */; };
+		0BC805122D38BFDE007B63AE /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC805112D38BFDE007B63AE /* FirebaseCore */; };
+		0BC805142D38BFDE007B63AE /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC805132D38BFDE007B63AE /* FirebaseCrashlytics */; };
+		0BC8053B2D38C295007B63AE /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC8053A2D38C295007B63AE /* GoogleSignIn */; };
+		0BC8053D2D38C295007B63AE /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC8053C2D38C295007B63AE /* GoogleSignInSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,22 +42,9 @@
 		0BB1D6A22D34C74C00D3E914 /* The Ugly DuckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Ugly DuckUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		0BB060AF2D37DB8A005A7D9B /* Exceptions for "The Ugly Duck" folder in "The Ugly Duck" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"App/The Ugly Duck/App/info.plist",
-			);
-			target = 0BB1D6872D34C74B00D3E914 /* The Ugly Duck */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0BB1D68A2D34C74B00D3E914 /* The Ugly Duck */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				0BB060AF2D37DB8A005A7D9B /* Exceptions for "The Ugly Duck" folder in "The Ugly Duck" target */,
-			);
 			path = "The Ugly Duck";
 			sourceTree = "<group>";
 		};
@@ -71,7 +66,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BB060AD2D37D933005A7D9B /* TinkoffASDKCore in Frameworks */,
+				0BC805082D38BFDE007B63AE /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				0BB060A72D37CF48005A7D9B /* TinkoffASDKUI in Frameworks */,
+				0BC805142D38BFDE007B63AE /* FirebaseCrashlytics in Frameworks */,
+				0BC805042D38BFDE007B63AE /* FirebaseAnalytics in Frameworks */,
+				0BC805122D38BFDE007B63AE /* FirebaseCore in Frameworks */,
+				0BC805062D38BFDE007B63AE /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				0BC8050E2D38BFDE007B63AE /* FirebaseAuth in Frameworks */,
+				0BC8053D2D38C295007B63AE /* GoogleSignInSwift in Frameworks */,
+				0BC8053B2D38C295007B63AE /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +137,14 @@
 			packageProductDependencies = (
 				0BB060A62D37CF48005A7D9B /* TinkoffASDKUI */,
 				0BB060AC2D37D933005A7D9B /* TinkoffASDKCore */,
+				0BC805032D38BFDE007B63AE /* FirebaseAnalytics */,
+				0BC805052D38BFDE007B63AE /* FirebaseAnalyticsOnDeviceConversion */,
+				0BC805072D38BFDE007B63AE /* FirebaseAnalyticsWithoutAdIdSupport */,
+				0BC8050D2D38BFDE007B63AE /* FirebaseAuth */,
+				0BC805112D38BFDE007B63AE /* FirebaseCore */,
+				0BC805132D38BFDE007B63AE /* FirebaseCrashlytics */,
+				0BC8053A2D38C295007B63AE /* GoogleSignIn */,
+				0BC8053C2D38C295007B63AE /* GoogleSignInSwift */,
 			);
 			productName = "The Ugly Duck";
 			productReference = 0BB1D6882D34C74B00D3E914 /* The Ugly Duck.app */;
@@ -219,6 +230,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				0BB060A52D37CF48005A7D9B /* XCRemoteSwiftPackageReference "asdk-ios" */,
+				0BC805022D38BFDE007B63AE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0BC805392D38C295007B63AE /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0BB1D6892D34C74B00D3E914 /* Products */;
@@ -418,10 +431,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = "The Ugly Duck/The Ugly Duck.entitlements";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"The Ugly Duck/App/Preview Content\"";
-				DEVELOPMENT_TEAM = BC36S54BFF;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "The Ugly Duck/App/info.plist";
@@ -437,6 +451,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Lev-Vlasov.The-Ugly-Duck";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -448,10 +463,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = "The Ugly Duck/The Ugly Duck.entitlements";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"The Ugly Duck/App/Preview Content\"";
-				DEVELOPMENT_TEAM = BC36S54BFF;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "The Ugly Duck/App/info.plist";
@@ -467,6 +483,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Lev-Vlasov.The-Ugly-Duck";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -595,6 +612,22 @@
 				kind = branch;
 			};
 		};
+		0BC805022D38BFDE007B63AE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.7.0;
+			};
+		};
+		0BC805392D38C295007B63AE /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -607,6 +640,46 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0BB060A52D37CF48005A7D9B /* XCRemoteSwiftPackageReference "asdk-ios" */;
 			productName = TinkoffASDKCore;
+		};
+		0BC805032D38BFDE007B63AE /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BC805022D38BFDE007B63AE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		0BC805052D38BFDE007B63AE /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BC805022D38BFDE007B63AE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		0BC805072D38BFDE007B63AE /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BC805022D38BFDE007B63AE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		0BC8050D2D38BFDE007B63AE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BC805022D38BFDE007B63AE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		0BC805112D38BFDE007B63AE /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BC805022D38BFDE007B63AE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		0BC805132D38BFDE007B63AE /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BC805022D38BFDE007B63AE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		0BC8053A2D38C295007B63AE /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BC805392D38C295007B63AE /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		0BC8053C2D38C295007B63AE /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BC805392D38C295007B63AE /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

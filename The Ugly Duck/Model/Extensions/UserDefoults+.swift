@@ -8,12 +8,31 @@
 import Foundation
 
 extension UserDefaults {
+    
     var isAddedToBacket: Bool {
         get {
             return bool(forKey: "isAddedToBacket")
         }
         set {
             set(newValue, forKey: "isAddedToBacket")
+        }
+    }
+    
+    var userEmail: String {
+        get {
+            return string(forKey: "userEmail") ?? ""
+        }
+        set {
+            set(newValue, forKey: "userEmail")
+        }
+    }
+    
+    var userName: String {
+        get {
+            return string(forKey: "userName") ?? ""
+        }
+        set {
+            set(newValue, forKey: "userName")
         }
     }
 }

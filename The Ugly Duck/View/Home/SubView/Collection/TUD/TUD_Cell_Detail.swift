@@ -5,20 +5,6 @@
 //  Created by Lev Vlasov on 2025-01-14.
 //
 
-private func firstStartApp() {
-    let firstLaunch = UserDefaults().bool(forKey: "isFirstOpenApp")
-
-    if firstLaunch == false {
-        
-        // base 10 rounds
-        
-    }
-    
-    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-        UserDefaults().set(true, forKey: "isFirstOpenApp")
-    }
-}
-
 import SwiftUI
 
 struct TUD_Cell_Detail: View {

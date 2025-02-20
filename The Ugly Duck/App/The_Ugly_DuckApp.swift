@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import FirebaseCore
+
+final class AppDelegate: NSObject, UIApplicationDelegate { func application(_ application: UIApplication,didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool { FirebaseApp.configure(); return true}}
 
 
 @main
 struct The_Ugly_DuckApp: App {
-    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject private var stateProperties = StateProperties()
+    @StateObject private var userService = UserService()
     
     var body: some Scene {
         WindowGroup {
@@ -58,13 +62,28 @@ struct The_Ugly_DuckApp: App {
                             Text("Basket")
                         }
                     
-                   AccountView()
-                        .environmentObject(stateProperties)
-                        .tabItem {
-                            Image(systemName: "person")
-                            
-                            Text("Account")
-                        }
+                    
+                    if let email = UserService().getUserEmail() {
+                        // email was saved
+                        AccountView(userEmail: email, userName: UserService().getUserName())
+                            .environmentObject(stateProperties)
+                            .environmentObject(userService)
+                            .tabItem {
+                                Image(systemName: "person")
+                                
+                                Text("Account")
+                            }
+                    } else {
+                        // No data about user
+                        LoginView()
+                            .environmentObject(userService)
+                            .environmentObject(stateProperties)
+                            .tabItem {
+                                Image(systemName: "person")
+                                
+                                Text("Account")
+                            }
+                    }
                 }
             }
             .onAppear {
